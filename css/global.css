@@ -1,0 +1,85 @@
+* {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    background-color: black;
+    height: 12vh;
+    color: white;
+    justify-content: center;
+}
+
+.img {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-self: center;
+    width: 230px;
+    height: 30px;
+    padding-left: 20px;
+}
+
+.navbar {
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    font-weight: bolder;
+    font-size: 16px;
+    margin: auto;
+}
+
+
+.filtro {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.con_texto {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    text-align: center;
+    margin: auto;
+    font-size: 40px;
+    background-color: rgba(0, 0, 0, 0.12);
+}
+
+.botao {
+    display: flex;
+    flex-direction: row;  
+    list-style: none;
+    align-self: center;
+    gap: 20px;
+    padding-right: 3%;
+    text-decoration: none;
+}
+
+.btn {
+    width: 130px;
+    height: 40px;
+    background-color: black;
+    color: white;
+    border: white solid 2px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+#login {
+    text-decoration: none;
+    color: white;
+}
+
+#registro {
+    text-decoration: none;
+    color: white;
+}

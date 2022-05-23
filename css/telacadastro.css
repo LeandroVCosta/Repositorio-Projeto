@@ -1,0 +1,67 @@
+.cad_container {
+    display: flex;
+    height: 88vh;
+    justify-content: center;
+    background-image: url(../img/cadastro/fundocontainer/317234.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.cad_box {
+    width: 40%;
+    height: 90%;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: black solid 2px;
+    border-radius: 25px;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.cad_inp {
+    width: 50%;
+    height: 10%;
+    justify-content: center;
+    align-self: center;
+    border-radius: 25px;
+    outline: 0;
+}
+
+.cad_inp::placeholder{
+    text-align: center;
+    color: black;
+}
+
+.cad_btn {
+    width: 50%;
+    height: 10%;
+    background-color: white;
+    border: black solid 2px;
+    border-radius: 25px;
+    font-weight: bolder;
+}
+
+.cad_dsfav {
+    width: 50%;
+    height: 10%;
+    background-color: white;
+    border: black solid 2px;
+    border-radius: 25px;
+    text-align: center;
+}
+
+.cad_dsfav::placeholder{
+    text-align: center;
+}
+
+.cad_text {
+    margin-bottom: 20px;
+}
+
+.cad_title {
+    margin-top: 20px;
+}

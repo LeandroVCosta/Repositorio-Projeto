@@ -45,6 +45,12 @@
     font-weight: bolder;
 }
 
+.cad_btn:hover {
+    color: white;
+    background-color: black;
+    transition: 0.33ms;
+}
+
 .cad_dsfav {
     width: 50%;
     height: 10%;

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/teladelogin.css">
+    <link rel="stylesheet" href="css/global.css">
+</head>
+<body>
+    <header>
+        <img class="img" src="img/header/ds-removebg-preview.png" alt="">
+        <ul class="navbar">
+               <li>INICIO</li>
+               <li>O QUE É?</li>
+               <li>SOBRE</li>
+               <li>COMPRAR</li>
+           </ul>
+            <ul class="botao">
+                <a id="login" href="telalogin.html"><button class="btn">LOGIN</button></a>
+                <a id="registro" href="telacadastro.html"><button class="btn">REGISTRAR</button></a>
+        </ul>
+    </header>
+    <div class="cad_container">
+        <div class="cad_box">
+            <h3 class="cad_title">BEM VINDO!</h3>
+            <input type="text" placeholder="Insira seu Email" class="cad_inp">
+            <input type="text" placeholder="Insira sua senha" class="cad_inp">
+            <button class="log_btn">ENTRAR</button>
+            <span class="cad_text">Não possui conta? faça o <a href="telacadastro.html" style="text-decoration: none; color:black; font-weight:bolder ">Registro.</a></span> 
+        </div>
+        </div>
+</body>
+</html>
+
+<script>
+
+
+    function entrar() {
+
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            alert('PREENCHA OS CAMPOS')
+            return false;
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "./dashboard/cards.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+</script>
+

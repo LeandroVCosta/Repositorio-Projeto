@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CADASTRO</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/telacadastro.css">
+</head>
+<body>
+    <header>
+        <img class="img" src="img/header/ds-removebg-preview.png" alt="">
+        <ul class="navbar">
+               <li>INICIO</li>
+               <li>O QUE É?</li>
+               <li>SOBRE</li>
+               <li>COMPRAR</li>
+           </ul>
+        <ul class="botao">
+            <a id="login" href="telalogin.html"><button class="btn">LOGIN</button></a>
+            <a id="registro" href="telacadastro.html"><button class="btn">REGISTRAR</button></a>
+        </ul>
+    </header>
+    <div class="cad_container">
+    <div class="cad_box">
+        <h3 class="cad_title">JUNTE-SE A COMUNIDADE</h3>
+        <input type="text" id="cad_usuario" placeholder="Insira seu nome de usuário" class="cad_inp">
+        <input type="text" id="cad_email" placeholder="Insira seu Email" class="cad_inp">
+        <input type="text" id="cad_senha" placeholder="Insira sua senha" class="cad_inp">
+        <input type="text" id="cad_senhac" placeholder="Confirme sua senha" class="cad_inp">
+        <select name="dsfavorito" id="sel_ds" class="cad_dsfav">
+            <option value="not">SELECIONE O DS FAVORITO</option>
+            <option value="ds1">DARK SOULS 1</option>
+            <option value="ds2">DARK SOULS 2</option>
+            <option value="ds3">DARK SOULS 3</option>
+        </select>
+        <button class="cad_btn" onclick="cadastrar()">CADASTRAR</button>
+        <span class="cad_text">Já possui conta? faça o <a href="telalogin.html" style="text-decoration: none; color:black; font-weight:bolder ">Login.</a></span> 
+    </div>
+    </div>
+</body>
+</html>
+
+<script>
+    function cadastrar() {
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = cad_usuario.value;
+        var emailVar = cad_email.value;
+        var senhaVar = cad_senha.value;
+        var confirmacaoSenhaVar = cad_senhac.value;
+        var dsFAV = sel_ds.value
+
+        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+            alert ('campos em branco');
+
+            return false;
+        }
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar,
+                dsServer: dsFAV
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+
+                alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
+
+                setTimeout(() => {
+                    window.location = "telalogin.html";
+                }, "2000")
+
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+        return false;
+    }
+
+</script>

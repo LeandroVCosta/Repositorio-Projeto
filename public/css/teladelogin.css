@@ -7,6 +7,21 @@
     background-repeat: no-repeat;
 }
 
+.cad_boxglobal {
+    width: 40%;
+    height: 90%;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: black solid 2px;
+    border-radius: 25px;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    gap: 20px;
+}
+
 .cad_box {
     width: 40%;
     height: 90%;
@@ -36,7 +51,11 @@
     color: black;
 }
 
-.cad_btn {
+.cad_inp:focus {
+    text-align: center;
+}
+
+.log_btn {
     width: 50%;
     height: 10%;
     background-color: white;
@@ -45,24 +64,13 @@
     font-weight: bolder;
 }
 
-.cad_btn:hover {
+.log_btn:hover {
     color: white;
     background-color: black;
+    border-color: white;
     transition: 0.33ms;
 }
 
-.cad_dsfav {
-    width: 50%;
-    height: 10%;
-    background-color: white;
-    border: black solid 2px;
-    border-radius: 25px;
-    text-align: center;
-}
-
-.cad_dsfav::placeholder{
-    text-align: center;
-}
 
 .cad_text {
     margin-bottom: 20px;

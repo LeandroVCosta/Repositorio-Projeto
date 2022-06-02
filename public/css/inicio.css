@@ -2,9 +2,22 @@
 .container {
         display: flex;
         flex-direction: column;
-        height: 88vh;
+        height: 100vh;
         background-image: url(../img/container/fundocontainer.jpg);
         background-size: cover;
         background-repeat: no-repeat;
         background-position-y:-100px;
+    }
+
+    .section1 {
+        height: 88vh;
+        text-align: center;
+        border-bottom: black solid 2px;
+        margin-top: 1%;
+    }
+    
+    .section2 {
+        height: 88vh;
+        text-align: center;
+        margin-top: 1%;
     }

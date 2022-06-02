@@ -8,8 +8,11 @@ header {
     display: flex;
     background-color: black;
     height: 12vh;
+    width: 100%;
     color: white;
     justify-content: center;
+    position: fixed;
+    z-index: 2;
 }
 
 .img {
@@ -19,11 +22,11 @@ header {
     align-self: center;
     width: 230px;
     height: 30px;
-    padding-left: 20px;
+    margin-left: 1%;
 }
 
 .navbar {
-    width: 500px;
+    width: 480px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -58,8 +61,8 @@ header {
     list-style: none;
     align-self: center;
     gap: 20px;
-    padding-right: 3%;
     text-decoration: none;
+    margin-right: 1%;
 }
 
 .btn {
@@ -91,4 +94,10 @@ header {
 #registro {
     text-decoration: none;
     color: white;
+}
+
+.nav_btn:hover {
+    transition: 0.33ms;
+    color: red;
+    cursor: pointer;
 }

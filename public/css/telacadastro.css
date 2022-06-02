@@ -1,6 +1,6 @@
 .cad_container {
     display: flex;
-    height: 88vh;
+    height: 100vh;
     justify-content: center;
     background-image: url(../img/cadastro/fundocontainer/317234.png);
     background-size: cover;
@@ -9,7 +9,8 @@
 
 .cad_box {
     width: 40%;
-    height: 90%;
+    height: 75%;
+    margin-top: 5%;
     background-color: rgba(255, 255, 255, 0.8);
     border: black solid 2px;
     border-radius: 25px;
@@ -37,6 +38,10 @@
 }
 
 .cad_inp:focus {
+    text-align: center;
+}
+
+.cad_inp, textarea {
     text-align: center;
 }
 

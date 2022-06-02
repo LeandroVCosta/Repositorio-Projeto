@@ -12,11 +12,11 @@
     <header>
         <img class="img" src="img/header/ds-removebg-preview.png" alt="">
         <ul class="navbar">
-            <a href="index.html" style="color: white; text-decoration: none;"><li class="nav_btn">INICIO</li></a>
-               <li class="nav_btn">O QUE É?</li>
-               <li class="nav_btn">SOBRE</li>
-               <li class="nav_btn">COMPRAR</li>
-           </ul>
+            <a href="index.html" style="color: white; text-decoration: none;"><li class="nav_btn">Inicio</li></a>
+            <li class="nav_btn">O que é?</li>
+            <li class="nav_btn">Sobre</li>
+            <li class="nav_btn">Comprar</li>
+        </ul>
            <ul class="botao">
             <a id="login" href="telalogin.html"><button class="btn">LOGIN</button></a>
             <a id="registro" href="telacadastro.html"><button class="btn">REGISTRAR</button></a>
@@ -25,10 +25,11 @@
     <div class="cad_container">
         <div class="cad_box">
             <h3 class="cad_title">BEM VINDO!</h3>
-            <input type="text" placeholder="Insira seu Email" class="cad_inp">
-            <input type="text" placeholder="Insira sua senha" class="cad_inp">
-            <button class="log_btn">ENTRAR</button>
-            <span class="cad_text">Não possui conta? faça o <a href="telacadastro.html" style="text-decoration: none; color:black; font-weight:bolder ">Registro.</a></span> 
+            <input type="text" placeholder="Insira seu Email" class="cad_inp" id="cad_email" onkeyup="validar()">
+            <input type="password" placeholder="Insira sua senha" id="cad_senha" onkeyup="validar()" class="cad_inp">
+            <button class="log_btn" onclick="entrar()">ENTRAR</button>
+            <span class="cad_text">Não possui conta? faça o <a href="telacadastro.html" style="text-decoration: none; color:black; font-weight:bolder ">Registro.</a><br>
+                <b class="cad_msgerrocss" id="cad_msgerro"></b></span> 
         </div>
         </div>
 </body>
@@ -36,11 +37,42 @@
 
 <script>
 
+function validar() {
+        var emailVar = cad_email.value;
+        var senhaVar = cad_senha.value;
+
+        if (emailVar == "") {
+            sumir()
+            cad_msgerro.style.display = `inline`;
+            cad_msgerro.style.color = `black`;
+            cad_msgerro.innerHTML = 'EMAIL EM BRANCO';
+            return false;
+        }
+
+        if (senhaVar == "") {
+            sumir()
+            cad_msgerro.style.display = `inline`;
+            cad_msgerro.style.color = `black`;
+            cad_msgerro.innerHTML = 'SENHA EM BRANCO';
+            return false;
+        }
+
+        if (emailVar.length > 0 && senhaVar.length > 0){
+            sumir()
+        }
+
+        return true;
+
+
+    }
+
 
     function entrar() {
-
-        var emailVar = email_input.value;
-        var senhaVar = senha_input.value;
+        if(validar() == false) {
+            alert(`Houve um erro no preenchimento dos campos`)
+        }
+        var emailVar = cad_email.value;
+        var senhaVar = cad_senha.value;
 
         if (emailVar == "" || senhaVar == "") {
             alert('PREENCHA OS CAMPOS')
@@ -74,13 +106,13 @@
                     sessionStorage.ID_USUARIO = json.id;
 
                     setTimeout(function () {
-                        window.location = "./dashboard/cards.html";
+                        window.location = "./dashboard.html";
                     }, 1000); // apenas para exibir o loading
 
                 });
 
             } else {
-
+                alert(`Erro ao realizar o Login`)
                 console.log("Houve um erro ao tentar realizar o login!");
 
                 resposta.text().then(texto => {
@@ -93,6 +125,10 @@
         })
 
         return false;
+    }
+
+    function sumir() {
+        cad_msgerro.style.display = 'none'
     }
 
 </script>

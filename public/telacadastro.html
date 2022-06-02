@@ -12,11 +12,11 @@
     <header>
         <img class="img" src="img/header/ds-removebg-preview.png" alt="">
         <ul class="navbar">
-            <a href="index.html" style="color: white; text-decoration: none;"><li class="nav_btn">INICIO</li></a>
-               <li class="nav_btn">O QUE É?</li>
-               <li class="nav_btn">SOBRE</li>
-               <li class="nav_btn">COMPRAR</li>
-           </ul>
+            <a href="index.html" style="color: white; text-decoration: none;"><li class="nav_btn">Inicio</li></a>
+            <li class="nav_btn">O que é?</li>
+            <li class="nav_btn">Sobre</li>
+            <li class="nav_btn">Comprar</li>
+        </ul>
            <ul class="botao">
             <a id="login" href="telalogin.html"><button class="btn">LOGIN</button></a>
             <a id="registro" href="telacadastro.html"><button class="btn">REGISTRAR</button></a>
@@ -25,38 +25,121 @@
     <div class="cad_container">
     <div class="cad_box">
         <h3 class="cad_title">JUNTE-SE A COMUNIDADE</h3>
-        <input type="text" id="cad_usuario" placeholder="Insira seu nome de usuário" class="cad_inp">
-        <input type="text" id="cad_email" placeholder="Insira seu Email" class="cad_inp">
-        <input type="text" id="cad_senha" placeholder="Insira sua senha" class="cad_inp">
-        <input type="text" id="cad_senhac" placeholder="Confirme sua senha" class="cad_inp">
-        <select name="dsfavorito" id="sel_ds" class="cad_dsfav">
-            <option value="not">SELECIONE O DS FAVORITO</option>
-            <option value="ds1">DARK SOULS 1</option>
-            <option value="ds2">DARK SOULS 2</option>
-            <option value="ds3">DARK SOULS 3</option>
+        <input type="text" id="cad_usuario" onkeyup="validar()" placeholder="Insira seu nome de usuário" class="cad_inp">
+        <input type="email" id="cad_email" onkeyup="validar()" placeholder="Insira seu Email" class="cad_inp">
+        <input type="password" id="cad_senha" onkeyup="validar()" placeholder="Insira sua senha" class="cad_inp">
+        <input type="password" id="cad_senhac" onkeyup="validar()" placeholder="Confirme sua senha" class="cad_inp">
+        <select name="dsfavorito" id="sel_ds" onchange="validar()" class="cad_dsfav">
+            <option class="opt" value="not">Selecione o Ds Favorito</option>
+            <option class="opt" value="ds1">Dark Souls 1</option>
+            <option class="opt" value="ds2">Dark Souls 2</option>
+            <option class="opt" value="ds3">Dark Souls 3</option>
         </select>
         <button class="cad_btn" onclick="cadastrar()">CADASTRAR</button>
-        <span class="cad_text">Já possui conta? faça o <a href="telalogin.html" style="text-decoration: none; color:black; font-weight:bolder ">Login.</a></span> 
+        <span class="cad_text">Já possui conta? faça o <a href="telalogin.html" style="text-decoration: none; color:black; font-weight:bolder ">Login.</a> <br>
+        <b class="cad_msgerrocss" id="cad_msgerro"></b></span> 
     </div>
     </div>
 </body>
 </html>
 
 <script>
+
+    function validar() {
+        var nomeVar = cad_usuario.value;
+        var emailVar = cad_email.value;
+        var senhaVar = cad_senha.value;
+        var confirmacaoSenhaVar = cad_senhac.value;
+        var dsFAV = sel_ds.value;
+
+        if (nomeVar == "") {
+            sumir()
+            cad_msgerro.style.display = `inline`;
+            cad_msgerro.style.color = `black`;
+            cad_msgerro.innerHTML = 'NOME DE USUARIO EM BRANCO';
+            return false;
+        } else if (nomeVar.length > 0) {
+            sumir()
+        }
+
+        if (emailVar == "") {
+            sumir()
+            cad_msgerro.style.display = `inline`;
+            cad_msgerro.style.color = `black`;
+            cad_msgerro.innerHTML = 'EMAIL EM BRANCO';
+            return false;
+        }
+
+        if (senhaVar == "") {
+            sumir()
+            cad_msgerro.style.display = `inline`;
+            cad_msgerro.style.color = `black`;
+            cad_msgerro.innerHTML = 'SENHA EM BRANCO';
+            return false;
+        }
+        if (confirmacaoSenhaVar == "") {
+            sumir()
+            cad_msgerro.style.display = `inline`;
+            cad_msgerro.style.color = `black`;
+            cad_msgerro.innerHTML = 'CONFIRMAÇÃO DE SENHA EM BRANCO';
+            return false;
+        }
+        if (dsFAV == "not") {
+            sumir()
+            cad_msgerro.style.display = `inline`;
+            cad_msgerro.style.color = `black`;
+            cad_msgerro.innerHTML = 'SELECIONE UM DARK SOULS';
+            return false;
+        }
+
+        if (confirmacaoSenhaVar != senhaVar) {
+            sumir()
+            cad_msgerro.style.display = `inline`;
+            cad_msgerro.style.color = `black`;
+            cad_msgerro.innerHTML = 'SENHAS DIFERENTES';
+            return false;
+        }
+
+        if (nomeVar.length > 0 && emailVar.length > 0 && senhaVar.length > 0 && confirmacaoSenhaVar.length > 0 && dsFAV != 'not' && confirmacaoSenhaVar == senhaVar){
+            sumir()
+        }
+
+        return true;
+
+
+    }
+
+    function validaremail() {
+        emailVar = cad_email.value;
+        if (emailVar.indexOf("@") != -1 && emailVar.indexOf(".com") != -1) {
+            return true;
+        } 
+        else if (emailVar.indexOf("@") != -1 && emailVar.indexOf(".school") != -1) {
+            return true;
+        } else {
+            return false
+        }
+    }
+
     function cadastrar() {
-        //Recupere o valor da nova input pelo nome do id
-        // Agora vá para o método fetch logo abaixo
+
+        if (validaremail() == false) {
+            cad_msgerro.style.display = `inline`;
+            cad_msgerro.style.color = `black`;
+            cad_msgerro.innerHTML = `EMAIL INVÁLIDO`
+            return;
+        }
+
+        if (validar() == false) {
+            alert (`Houve um erro no preenchimento dos campos`)
+            return;
+        } 
+
         var nomeVar = cad_usuario.value;
         var emailVar = cad_email.value;
         var senhaVar = cad_senha.value;
         var confirmacaoSenhaVar = cad_senhac.value;
         var dsFAV = sel_ds.value
-
-        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
-            alert ('campos em branco');
-
-            return false;
-        }
         // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {
             method: "POST",
@@ -76,22 +159,23 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                cardErro.style.display = "block";
-
-                alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
 
                 setTimeout(() => {
                     window.location = "telalogin.html";
                 }, "2000")
 
             } else {
-                throw ("Houve um erro ao tentar realizar o cadastro!");
+                alert ("Houve um erro ao tentar realizar o cadastro!");
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
         });
 
         return false;
+    }
+
+    function sumir() {
+        cad_msgerro.style.display = 'none'
     }
 
 </script>

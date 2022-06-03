@@ -20,7 +20,7 @@ header {
     flex-direction: row;
     justify-content: center;
     align-self: center;
-    width: 230px;
+    width: 200px;
     height: 30px;
     margin-left: 1%;
 }
@@ -35,6 +35,8 @@ header {
     font-weight: bolder;
     font-size: 16px;
     margin: auto;
+    margin-left: 18%;
+
 }
 
 
@@ -57,12 +59,13 @@ header {
 
 .botao {
     display: flex;
-    flex-direction: row;  
+    flex-direction: row;
+    width: 23vw;
+    height: 40px;  
     list-style: none;
     align-self: center;
     gap: 20px;
     text-decoration: none;
-    margin-right: 1%;
 }
 
 .btn {

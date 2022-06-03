@@ -77,9 +77,9 @@ function entrar() {
                 console.log(json);
                 console.log(JSON.stringify(json));
 
-                sessionStorage.EMAIL_USUARIO = json.email;
-                sessionStorage.NOME_USUARIO = json.nome;
-                sessionStorage.ID_USUARIO = json.id;
+                sessionStorage.EMAIL_USUARIO = json.Email;
+                sessionStorage.DS_FAVORITO = json.DsFAV;
+                sessionStorage.ID_USUARIO = json.idUsuario;
 
                 setTimeout(function () {
                     window.location = "./dashboard.html";

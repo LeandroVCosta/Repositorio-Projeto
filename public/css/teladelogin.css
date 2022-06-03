@@ -26,7 +26,7 @@
     width: 40%;
     height: 75%;
     margin-top: 5%;
-    background-color: rgba(255, 255, 155, 0.20);
+    background-color: rgba(0, 0, 0, 0.45);
     border-radius: 35px;
     box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.3);
     align-self: center;
@@ -78,16 +78,17 @@
 .log_btn:hover {
     color: white;
     background-color: black;
-    border-color: white;
     transition: 0.33ms;
 }
 
-
-
 .cad_text {
+    color: white;
+    font-weight: bolder;
     margin-bottom: 20px;
 }
 
 .cad_title {
+     color: white;
+     font-weight: bolder;
     margin-top: 20px;
 }

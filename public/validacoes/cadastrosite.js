@@ -91,7 +91,6 @@ function cadastrar() {
     var nomeVar = cad_usuario.value;
     var emailVar = cad_email.value;
     var senhaVar = cad_senha.value;
-    var confirmacaoSenhaVar = cad_senhac.value;
     var dsFAV = sel_ds.value
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {

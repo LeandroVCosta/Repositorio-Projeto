@@ -80,6 +80,7 @@ function entrar() {
                 sessionStorage.EMAIL_USUARIO = json.Email;
                 sessionStorage.DS_FAVORITO = json.DsFAV;
                 sessionStorage.ID_USUARIO = json.idUsuario;
+                sessionStorage.NOME_USUARIO = json.nomeUsuario;
 
                 setTimeout(function () {
                     window.location = "./dashboard.html";

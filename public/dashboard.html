@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/global.css">
+    <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
     <title>Document</title>
 </head>
-<body>
+<body onload="/*verificar(),*/">
     <header>
         <img class="img" src="img/header/ds-removebg-preview.png" alt="">
         <ul class="navbar">
@@ -15,8 +16,23 @@
                <li class="nav_btn">Votações</li>
                <li class="nav_btn">Discussões</li>
            </ul>
-           <ul class="botao">
+           <ul class="botao"  style="flex-direction: column; text-align: center; gap: 5px;">
+              <span>Olá, <b id="dash_nome"></b></span>
+               <b onclick="sair()" style="color: red; cursor: pointer;">SAIR</b>
            </ul>
     </header>
+    <div id="container">
+        <h3 id="titulografico"></h3>
+        <div id="graph">
+
+            <canvas id="canvas_grafico">
+                
+            </canvas>
+        </div>
+    </div>
 </body>
 </html>
+
+<script src="./validacoes/dashboard.js">
+
+</script>

@@ -101,14 +101,14 @@ function plotarGrafico(resposta) {
     for (i = 0; i < resposta.length; i++) {
         var registro = resposta[i];
         dados.labels.push(registro.momento_grafico);
-        dados.datasets[0].data.push(registro);
+        dados.datasets[0].data.push(registro.QtdDS2);
         dados.datasets[1].data.push(registro);
     }
 
     console.log(JSON.stringify(dados));
 
     var ctx = canvas_grafico.getContext('2d');
-    window.grafico_linha = Chart.Line(ctx, {
+    window.grafico_linha = Chart.Bar(ctx, {
         data: dados,
         options: {
             responsive: true,
@@ -167,15 +167,11 @@ function atualizarGrafico(dados) {
                 console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
                 console.log(`Dados atuais do gráfico: ${dados}`);
 
-                // tirando e colocando valores no gráfico
-                dados.labels.shift(); // apagar o primeiro
-                dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
+                // tirando e colocando valores no gráfico // incluir um novo momento
                 
-                dados.datasets[0].data.shift();  // apagar o primeiro de umidade
-                dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
+                dados.datasets[0].data.push(novoRegistro[0].QtdDS2); // incluir uma nova medida de umidade
                 
-                dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
-                dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
+                dados.datasets[1].data.push(novoRegistro[0].QtdDS2); // incluir uma nova medida de temperatura
 
                 window.grafico_linha.update();
 

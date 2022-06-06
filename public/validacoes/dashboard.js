@@ -1,6 +1,18 @@
+function trocarimg() {
+    if(sessionStorage.DS_FAVORITO == null) {
+        fundo.src = "https://images3.alphacoders.com/271/271539.jpg"
+    }
+    if(sessionStorage.DS_FAVORITO == ds2) {
+        fundo.src = "https://images3.alphacoders.com/271/271539.jpg"
+    }
+    if(sessionStorage.DS_FAVORITO == ds3) {
+        fundo.src = "https://images3.alphacoders.com/271/271539.jpg"
+    }
+}
+
 function verificar() {
 
-    // function validarSessao() {
+
  const email = sessionStorage.NOME_USUARIO;
  const nome = sessionStorage.EMAIL_USUARIO;
 
@@ -21,7 +33,7 @@ function sair() {
 
 let proximaAtualizacao;
 
-window.onload = obterDadosGrafico(1);
+window.onload = obterDadosGrafico();
 
 
 // O gráfico é construído com três funções:
@@ -61,7 +73,7 @@ function obterDadosGrafico() {
 // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
 // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
 // A função *plotarGrafico* também invoca a função *atualizarGrafico*
-function plotarGrafico(resposta, ) {
+function plotarGrafico(resposta) {
     console.log('iniciando plotagem do gráfico...');
 
     var dados = {
@@ -89,8 +101,8 @@ function plotarGrafico(resposta, ) {
     for (i = 0; i < resposta.length; i++) {
         var registro = resposta[i];
         dados.labels.push(registro.momento_grafico);
-        dados.datasets[0].data.push(registro.umidade);
-        dados.datasets[1].data.push(registro.temperatura);
+        dados.datasets[0].data.push(registro);
+        dados.datasets[1].data.push(registro);
     }
 
     console.log(JSON.stringify(dados));

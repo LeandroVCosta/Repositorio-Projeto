@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/jogoslog.css">
+</head>
+<body>
+    <header>
+        <img class="img" src="img/header/ds-removebg-preview.png" alt="">
+        <ul class="navbar">
+            <a href="loginicio.html" style="color: white; text-decoration: none;"><li class="nav_btn">Inicio</li></a>
+               <a href="dashboard.html" style="color: white; text-decoration: none;"><li class="nav_btn">Dashboard</li></a>
+               <a href="jogoslog.html" style="color: white; text-decoration: none;"><li class="nav_btn">Jogos</li></a>
+           </ul>
+           <ul class="botao"  style="flex-direction: column; text-align: center; gap: 5px;">
+              <span>Olá, <b id="dash_nome"></b></span>
+               <b onclick="sair()" style="color: red; cursor: pointer;">SAIR</b>
+           </ul>
+    </header>
+    <div class="container">
+    <div class="box1"><h3 class="titulo">CALCULADORA</h3><button class="jogo_btn" onclick="popup()">CALCULAR</button></div>
+    <div class="box2"><h3 class="titulo">MONTAR RANK</h3><button class="jogo_btn">MONTAR</button></div>
+    </div>
+    <div class="popup-wrapper" id="pw">
+        <div class="popup">
+            <div class="popup-closer" onclick="fechar()" style="color: red; font-size: 35px;">X</div>
+            <div class="popup-content">
+                <h3 class="titulo" style="color: red;">CALCULE A QUANTIDADE DE HITS PARA MATAR O BOSS</h3>
+                <div id="resultado">
+                    <br>
+                    <span id="pergunta"></span> <br>
+                    <div class="div_inputs">
+                        <input class="inp" id="in_vida" type="number" placeholder="Digite a vida do chefe">
+                        <input class="inp" id="in_player" type="number" placeholder="Digite a quantidade de players">
+                        <input class="inp" id="in_dano" type="number" placeholder="Digite o seu dano por hit">
+                    </div>
+                    <button class="btn" id="botao0" onclick="calcular()">Calcular</button> <br>
+                    <div id="calculo" class="re_calculo"></div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+        function popup() {
+        pw.style.display = 'block'
+    } 
+
+    function fechar() {
+        pw.style.display = 'none'
+    }
+
+    function calcular() {
+     let vida = Number(in_vida.value)
+     let players = Number(in_player.value)
+     let dano = Number(in_dano.value)
+     let qtdhits = ([vida * players]/dano).toFixed(0)
+     let dificuldade = 0
+     if (in_vida.value == `` || in_player.value == `` || in_dano.value == ``){
+         calculo.innerHTML = `PREENCHA TODOS OS CAMPOS!`
+         return;
+     }
+     if (qtdhits < 15) {
+     dificuldade = `fácil`
+     }
+     else if (qtdhits > 15 && qtdhits <= 30) {
+     dificuldade = `dificil`
+     }
+     else {
+     dificuldade = `muito dificil`
+     }
+     calculo.innerHTML = `Você vai precisar dar ${qtdhits} hits para matar o chefe, isso vai ser ${dificuldade}.`
+    }
+</script>

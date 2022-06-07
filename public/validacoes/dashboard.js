@@ -18,7 +18,7 @@ function verificar() {
 
 if  (nome == null && email == null){
 
-        window.location = "../public/index.html"
+        window.location = "../public/loginicio.html"
     }
 }
 
@@ -81,9 +81,9 @@ function plotarGrafico(resposta) {
         datasets: [
             {
                 yAxisID: 'y-votacao',
-                label: 'Umidade',
-                borderColor: '#32B9CD',
-                backgroundColor: '#32b9cd8f',
+                label: 'Votos',
+                borderColor: '#FFFFFF',
+                backgroundColor: '#ff0000',
                 fill: true,
                 data: []
             }
@@ -119,7 +119,7 @@ function plotarGrafico(resposta) {
                     id: 'y-temperatura',
                     ticks: {
                         beginAtZero: true,
-                        max: 100,
+                        max: 25,
                         min: 0
                     }
                 }, {
@@ -129,7 +129,7 @@ function plotarGrafico(resposta) {
                     id: 'y-votacao',
                     ticks: {
                         beginAtZero: true,
-                        max: 100,
+                        max: 25,
                         min: 0
                     },
 

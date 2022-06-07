@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="dashboard.css">
     <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
     <title>Document</title>
 </head>
@@ -12,10 +13,9 @@
     <header>
         <img class="img" src="img/header/ds-removebg-preview.png" alt="">
         <ul class="navbar">
-                <li class="nav_btn">Inicio</li>
-               <li class="nav_btn">Dashboard</li>
-               <li class="nav_btn">Votações</li>
-               <li class="nav_btn">Discussões</li>
+            <a href="loginicio.html" style="color: white; text-decoration: none;"><li class="nav_btn">Inicio</li></a>
+               <a href="dashboard.html" style="color: white; text-decoration: none;"><li class="nav_btn">Dashboard</li></a>
+               <a href="jogoslog.html" style="color: white; text-decoration: none;"><li class="nav_btn">Jogos</li></a>
            </ul>
            <ul class="botao"  style="flex-direction: column; text-align: center; gap: 5px;">
               <span>Olá, <b id="dash_nome"></b></span>
@@ -23,13 +23,13 @@
            </ul>
     </header>
     <div id="container">
-        <h3 id="titulografico"></h3>
-        <div id="graph">
 
-            <canvas id="canvas_grafico">
+            <span>SPAN</span>
+            <h3 style="margin-top: 5%; text-align: center;color: white;">CONTAGEM DE VOTOS</h3>
+            <canvas id="canvas_grafico" style="height: 50vh; width: 100%; margin-top: 5%; ">
                 
             </canvas>
-        </div>
+
     </div>
 </body>
 </html>

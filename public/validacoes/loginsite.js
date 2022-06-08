@@ -78,12 +78,12 @@ function entrar() {
                 console.log(JSON.stringify(json));
 
                 sessionStorage.EMAIL_USUARIO = json.Email;
-                sessionStorage.DS_FAVORITO = json.DsFAV;
+                sessionStorage.DS_FAVORITO = json.fkDS;
                 sessionStorage.ID_USUARIO = json.idUsuario;
                 sessionStorage.NOME_USUARIO = json.nomeUsuario;
 
                 setTimeout(function () {
-                    window.location = "./dashboard.html";
+                    window.location = "./loginicio.html";
                 }, 1000); // apenas para exibir o loading
 
             });

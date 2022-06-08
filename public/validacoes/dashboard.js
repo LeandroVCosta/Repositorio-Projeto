@@ -1,14 +1,3 @@
-function trocarimg() {
-    if(sessionStorage.DS_FAVORITO == ds1) {
-        fundo.src = "https://images3.alphacoders.com/271/271539.jpg"
-    }
-    if(sessionStorage.DS_FAVORITO == ds2) {
-        fundo.src = "https://images3.alphacoders.com/271/271539.jpg"
-    }
-    if(sessionStorage.DS_FAVORITO == ds3) {
-        fundo.src = "https://images3.alphacoders.com/271/271539.jpg"
-    }
-}
 
 function verificar() {
 

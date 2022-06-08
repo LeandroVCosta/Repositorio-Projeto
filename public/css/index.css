@@ -1,0 +1,45 @@
+
+.container {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        background-image: url(../img/container/fundocontainer.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position-y:-100px;
+        border-bottom: red solid 1px;
+    }
+
+.container2 {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: black;
+    border-bottom: red solid 1px;
+}
+
+.container3 {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: black;
+}
+
+.ds_texto {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    text-align: justify;
+    margin-right: 10vw;
+    margin-left: 10vw;
+    color: white;
+}
+
+
